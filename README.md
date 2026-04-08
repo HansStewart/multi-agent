@@ -1,6 +1,8 @@
 Multi-Agent Business Intelligence System
 A production-ready multi-agent AI system that orchestrates 4 specialized GPT-4o agents in a sequential pipeline to deliver professional-grade business intelligence reports on any topic — deployed live on Google Cloud Run.
 
+| [rag-agent](https://github.com/HansStewart/rag-agent) | Document Q&A with FAISS vector search | [Live](https://rag-agent-559169459241.us-east1.run.app) |
+
 🔗 Live API: https://multi-agent-559169459241.us-east1.run.app
 
 The Problem It Solves

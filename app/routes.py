@@ -10,11 +10,10 @@ def home():
         "status": "healthy",
         "powered_by": "CrewAI + OpenAI GPT-4o",
         "agents": [
-            "Senior Research Analyst",
-            "Business Intelligence Analyst",
-            "Senior Business Report Writer",
-            "Quality Assurance Specialist"
-        ],
+    "Research Analyst",
+    "Business Intelligence Analyst",
+    "Report Writer"
+],
         "endpoints": {
             "POST /analyze": "Full 4-agent business intelligence report",
             "POST /quick-analyze": "Fast 2-agent quick analysis"
@@ -37,18 +36,15 @@ def analyze():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@main.route('/quick-analyze', methods=['POST'])
-def quick_analyze():
+@main.route('/query', methods=['POST'])
+def query():
     data = request.get_json()
     if not data or 'topic' not in data:
-        return jsonify({
-            "error": "Please provide a topic",
-            "example": {"topic": "Real estate market trends 2026"}
-        }), 400
+        return jsonify({"error": "Please provide a topic"}), 400
     topic = data['topic']
     try:
-        print(f"\n⚡ Starting 2-agent quick analysis for: {topic}")
-        result = run_quick_analysis(topic)
+        print(f"\n🎯 Portfolio query: {topic}")
+        result = run_business_intelligence_crew(topic)
         return jsonify({"status": "success", **result})
     except Exception as e:
         return jsonify({"error": str(e)}), 500

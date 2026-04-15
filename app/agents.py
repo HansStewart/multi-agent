@@ -7,52 +7,32 @@ load_dotenv()
 def create_research_agent():
     return Agent(
         role="Senior Research Analyst",
-        goal="Research and gather comprehensive, accurate information on any given topic",
-        backstory="""You are an expert research analyst with 15 years of experience
-        in business intelligence and market research. You excel at finding key facts,
-        trends, and insights from complex topics. You are thorough, accurate, and
-        always provide well-structured findings.""",
-        verbose=True,
+        goal="Research and summarize the most important facts and trends on the given topic",
+        backstory="""You are a sharp research analyst who delivers concise, 
+        high-signal findings. You skip filler and focus on what matters most.""",
+        verbose=False,
         allow_delegation=False,
-        max_iter=3
+        max_iter=1
     )
 
 def create_analysis_agent():
     return Agent(
         role="Business Intelligence Analyst",
-        goal="Analyze research findings and extract actionable insights and patterns",
-        backstory="""You are a seasoned business intelligence analyst with expertise
-        in data interpretation and strategic analysis. You transform raw research
-        into meaningful insights, identify patterns, and connect findings to
-        real-world business implications. You are analytical, precise, and
-        business-focused.""",
-        verbose=True,
+        goal="Extract the top 3-5 actionable insights from the research",
+        backstory="""You are a focused BI analyst who identifies the most 
+        important patterns and business implications quickly and precisely.""",
+        verbose=False,
         allow_delegation=False,
-        max_iter=3
+        max_iter=1
     )
 
 def create_writer_agent():
     return Agent(
         role="Senior Business Report Writer",
-        goal="Transform analysis into clear, professional, and compelling business reports",
-        backstory="""You are an expert business writer with experience creating
-        executive reports, market analyses, and strategic documents for Fortune 500
-        companies. You excel at making complex information accessible, structuring
-        reports logically, and writing with clarity and impact.""",
-        verbose=True,
+        goal="Write a sharp, professional executive intelligence report",
+        backstory="""You write concise, executive-ready business reports. 
+        You make complex information clear and every section earns its place.""",
+        verbose=False,
         allow_delegation=False,
-        max_iter=3
-    )
-
-def create_reviewer_agent():
-    return Agent(
-        role="Quality Assurance Specialist",
-        goal="Review reports for accuracy, completeness, clarity and professional quality",
-        backstory="""You are a meticulous quality assurance specialist with a keen
-        eye for detail. You review business documents for accuracy, logical flow,
-        completeness, and professional presentation. You ensure all reports meet
-        the highest standards before delivery.""",
-        verbose=True,
-        allow_delegation=False,
-        max_iter=3
+        max_iter=1
     )
